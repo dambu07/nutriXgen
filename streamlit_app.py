@@ -3,7 +3,7 @@ import google.generativeai as genai
 import pandas as pd
 
 st.set_page_config(
-    page_title="NutriGen - AI-Powered Nutritionist",
+    page_title="NutrigenX - AI-Powered Nutritionist",
     page_icon="🥗",  # You can also use a URL to an image file
     layout="wide",   # 'wide' layout or 'centered' layout
     initial_sidebar_state="expanded",  # Sidebar expanded by default
@@ -95,7 +95,7 @@ def guide_progress_tracking(health_metrics, current_weight, desired_weight):
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Meal Plan", "Track Progress"])
 
-st.sidebar.title("How to Use NutriGen")
+st.sidebar.title("How to Use NutrigenX")
 st.sidebar.markdown("""
 - **Meal Plan:** Generate personalized meal plans, nutritional analyses, and grocery lists based on your dietary restrictions, health goals, and any existing conditions.
 - **Track Progress:** Input your health metrics to track progress toward your goals. This page will provide general guidance and recommendations, but remember to consult healthcare professionals for personalized advice.
@@ -103,7 +103,7 @@ st.sidebar.markdown("""
 
 if page == "Meal Plan":
     # Meal Plan Page for Meal Planning
-    st.title("NutriGen")
+    st.title("NutrigenX")
     st.write("Your AI-Powered Personal Nutritionist, Get personalized nutrition advice, meal plans, and more.")
 
     # Dropdown options
@@ -163,3 +163,12 @@ elif page == "Track Progress":
             progress_report = guide_progress_tracking(health_metrics_str, current_weight, desired_weight)
             st.subheader("Progress Report")
             st.write(progress_report)
+
+    hide_st_style = """
+        <style>
+    MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+       </style>
+    """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
